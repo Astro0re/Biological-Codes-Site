@@ -280,3 +280,12 @@ Code display container for codes
     border-radius: 1.15rem;
     
 }
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #222;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+}
