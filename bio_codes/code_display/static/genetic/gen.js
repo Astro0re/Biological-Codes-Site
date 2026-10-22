@@ -4,28 +4,23 @@ const dis = document.getElementById("gen_dis")
 const genetic_proj = [
     {
         Proj_Title : "DNA Sequencing",
-        Proj_des : "Simuate possible DNA sequences",
-        Proj_link : ""
+        Proj_des : "Generate possible DNA sequences.",
+        Proj_link : "https://github.com/Astro0re/Bio-Codes/blob/main/Genetic/DNA_Sequence.py"
     },
     {
         Proj_Title : "Phylogenetic Tree",
-        Proj_des : "",
-        Proj_link : ""
-    },
-    {
-        Proj_Title : "Protein Folding",
-        Proj_des : "",
-        Proj_link : ""
+        Proj_des : "Calculate distances among DNA sequences for phylogenetic analysis.",
+        Proj_link : "https://github.com/Astro0re/Bio-Codes/blob/main/Genetic/Phylogenetic_tree.py"
     },
     {
         Proj_Title : "Punnett Squares",
-        Proj_des : "",
-        Proj_link : ""
+        Proj_des : "Explore possible allele combinations and their inheritance probabilities.",
+        Proj_link : "https://github.com/Astro0re/Bio-Codes/blob/main/Genetic/Punnett_Squares.py"
     },
     {
-        Proj_Title : "Sepuence Alignment",
-        Proj_des : "",
-        Proj_link : ""
+        Proj_Title : "Sequence Alignment",
+        Proj_des : "Compare two DNA sequences to identify aligned regions and similarities.",
+        Proj_link : "https://github.com/Astro0re/Bio-Codes/blob/main/Genetic/Sequence_Alignment.py"
     }
 ];
 
@@ -49,4 +44,4 @@ genetic_proj.forEach((proj) => {
     card.append(title, desc, link);
     dis.appendChild(card);
 });
-    
+

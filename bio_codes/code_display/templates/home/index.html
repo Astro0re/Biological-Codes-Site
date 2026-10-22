@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>homepage</title>
+        <title>Biological Codes | Home</title>
         <link href="{% static 'home/styles.css' %}" rel="stylesheet">
     </head>
     <body>
@@ -16,27 +16,18 @@
         </nav>
         <section>
             <h1>Biological codes</h1>
-            <p>Welcome to my biological playground where I write code to simulate biological processes</p>
-            <div>
-            <!--double curly braces to get variable listed in views.py and utilize it in rendered html-->
-            <p>{{ code }}</p>
-            </div>
-            <div>
-                <!--Insert Graphic-->
-            </div>
+            <p>Explore code projects that model biological processes, from genes to cells and anatomy.</p>
         </section>
         <section id="codes">
             <div>
-                <h1>Sections</h1>
-                <p>The body carries out various processes and works with various systems constantly. </p>
-                <p>
-                Here are some of those functions recreated with code.
-                Grouped by biolgical activity level</p>
+                <h2>Explore the projects</h2>
+                <p>Biological processes happen across many levels of organization. Browse projects grouped by biological scale.</p>
             </div>
             <div>
                 <a href="{% url 'cell' %}">Cellular Code</a>
                 <a href="{% url 'genetic' %}">Genetic Code</a>
-                <a href="{% url 'gross' %}">Gross Anatomy Code</a>
+                <!--
+                <a href="{% url 'gross' %}">Gross Anatomy Code</a>-->
                 
             </div>
             
@@ -46,14 +37,8 @@
         <section id="contribute">
             <div>
                 <h1>Contributions</h1>
-                <p>Our body is a complex, beautiful structure that we are still trying to understand.</p>
-                <p>Pherhaps thorugh this method of reverse engineering we can create new discoveries.
-                Would love to colaborate on this project with as much people as possible</p>
-                
-                <div>
-                    <h2>Goals</h2>
-                    <p>100 biological functions</p>
-                </div>
+                <p>There is still much to learn about how living systems work. Contributions can help us explore biological questions through code.</p>
+                <p>Interested in contributing? Read our <a href="https://github.com/Astro0re/Biological-Codes-Site/blob/master/CONTRIBUTIONS.md">contribution guide</a>.</p>
             </div>
         </section>
         <script src="{% static 'home/dis_fun/index.js' %}" defer></script>

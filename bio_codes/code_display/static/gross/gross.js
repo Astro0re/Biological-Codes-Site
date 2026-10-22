@@ -4,7 +4,7 @@ const dis = document.getElementById("gross_dis")
 const gross_proj = [
     {
         Proj_Title : "Skeletal Database",
-        Proj_des : "Data base of the skeletal system",
+        Proj_des : "A reference database of bones in the human skeleton.",
         Proj_link : ""
     }
 ];
@@ -29,4 +29,4 @@ gross_proj.forEach((proj) =>{
     
     card.append(title, desc, link);
     dis.appendChild(card);
-})   
+})

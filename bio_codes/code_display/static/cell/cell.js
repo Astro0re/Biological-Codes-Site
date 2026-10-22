@@ -4,14 +4,10 @@ const dis = document.getElementById("cell_dis");
 const cell_proj = [
     {
         Proj_Title: "Cellular Division",
-        Proj_des: "Code to simulate cell growth/division",
-        Proj_link: ""
-    },
-    {
-        Proj_Title: "Cellular Pathways",
-        Proj_des: "Code to simulate cell growth propabilities",
+        Proj_des: "Model cell growth and division under different conditions.",
         Proj_link: ""
     }
+
 ];
 
 cell_proj.forEach((proj) => {
