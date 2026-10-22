@@ -4,32 +4,41 @@ Biological Codes is a Django website for organizing and presenting code projects
 
 ## Current catalog
 
-- **Cellular** (`/cell/`): cellular division and pathway project cards.
-- **Genetic** (`/genetic/`): DNA sequencing, phylogenetic trees, protein folding, Punnett squares, and sequence alignment cards.
+- **Cellular** (`/cell/`): a cellular division project card.
+- **Genetic** (`/genetic/`): DNA sequence generation, phylogenetic distance calculation, Punnett square combinations, and sequence alignment cards.
 - **Gross anatomy** (`/gross/`): a skeletal database project card.
 
-These cards are currently placeholders: their “View Code” links are empty and some descriptions have not been filled in. The home page is at `/`; `/ore/` is a simple placeholder response. The site currently renders pages and client-side catalog cards; it does not yet run these listed simulations.
+The cellular division and skeletal database cards do not yet have code links. Genetic project links point to files in the separate Bio-Codes GitHub repository. This Django site displays the catalog; it does not run the listed programs. The home page is at `/`; `/ore/` is a placeholder response.
 
 ## Requirements
 
-- Python 3.10 or later
-- Django 5.2.4
+- Python 3.13 (also recorded in `.python-version`)
+- Packages listed in `bio_codes/requirements.txt`
 
 ## Run locally
 
-From the repository root, create and activate a virtual environment, install Django, then start the development server:
+From the repository root, create and activate a virtual environment, install the project requirements, then start the development server:
 
-```bash
+```powershell
 python -m venv .venv
-# Windows PowerShell
 .venv\Scripts\Activate.ps1
-# macOS or Linux: source .venv/bin/activate
-python -m pip install "Django==5.2.4"
-python bio_codes/manage.py migrate
+python -m pip install -r bio_codes/requirements.txt
+$env:DEBUG = "True"
 python bio_codes/manage.py runserver
 ```
 
-Open <http://127.0.0.1:8000/>. Django uses the SQLite database configured in `bio_codes/bio_codes/settings.py`; migrations prepare the local database. You can also open the Django admin at `/admin/` after creating a local administrator with `python bio_codes/manage.py createsuperuser`.
+On macOS or Linux, activate with `source .venv/bin/activate` and start the app with `DEBUG=True python bio_codes/manage.py runserver`. Open <http://127.0.0.1:8000/>. The current site does not store visitor data and does not need a hosted database.
+
+## Deploy to Render
+
+1. Push the project to GitHub and connect that repository to Render.
+2. Create a **Web Service** using the `master` branch and set **Root Directory** to `bio_codes`.
+3. Set the **Build Command** to `pip install -r requirements.txt && python manage.py collectstatic --no-input`.
+4. Set the **Start Command** to `gunicorn bio_codes.wsgi:application`.
+5. Add `SECRET_KEY` as a generated secret and set `DEBUG` to `False`. Render supplies `RENDER_EXTERNAL_HOSTNAME`, which the settings use for `ALLOWED_HOSTS`.
+6. Deploy, then check the home page and `/cell/`, `/genetic/`, and `/gross/` routes.
+
+No PostgreSQL service, `DATABASE_URL`, migrations, or external API credentials are required for the current site. A custom domain is optional; configure it in Render and at your domain provider if you use one.
 
 ## Repository layout
 
