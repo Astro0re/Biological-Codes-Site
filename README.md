@@ -32,11 +32,11 @@ On macOS or Linux, activate with `source .venv/bin/activate` and start the app w
 ## Deploy to Render
 
 1. Push the project to GitHub and connect that repository to Render.
-2. Create a **Web Service** using the `master` branch and set **Root Directory** to `bio_codes`.
-3. Set the **Build Command** to `pip install -r requirements.txt && python manage.py collectstatic --no-input`.
-4. Set the **Start Command** to `gunicorn bio_codes.wsgi:application`.
-5. Add `SECRET_KEY` as a generated secret and set `DEBUG` to `False`. Render supplies `RENDER_EXTERNAL_HOSTNAME`, which the settings use for `ALLOWED_HOSTS`.
-6. Deploy, then check the home page and `/cell/`, `/genetic/`, and `/gross/` routes.
+2. In Render, choose **New > Blueprint** and select the repository's `master` branch. Render reads `render.yaml` from the repository root and configures the service root, build command, and WSGI start command.
+3. Apply the Blueprint. It generates `SECRET_KEY` and sets `DEBUG` to `False`; Render supplies `RENDER_EXTERNAL_HOSTNAME`, which the settings use for `ALLOWED_HOSTS`.
+4. Deploy, then check the home page and `/cell/`, `/genetic/`, and `/gross/` routes.
+
+If you create a Web Service manually instead, set **Root Directory** to `bio_codes`, **Build Command** to `pip install -r requirements.txt && python manage.py collectstatic --no-input`, and **Start Command** to `gunicorn bio_codes.wsgi:application`. Add `SECRET_KEY` and `DEBUG=False` in the service's Environment settings.
 
 No PostgreSQL service, `DATABASE_URL`, migrations, or external API credentials are required for the current site. A custom domain is optional; configure it in Render and at your domain provider if you use one.
 

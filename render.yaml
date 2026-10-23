@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: biological-codes
+    runtime: python
+    plan: free
+    branch: master
+    rootDir: bio_codes
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --no-input
+    startCommand: gunicorn bio_codes.wsgi:application
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
