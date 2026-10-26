@@ -5,7 +5,7 @@ const cell_proj = [
     {
         Proj_Title: "Cellular Division",
         Proj_des: "Model cell growth and division under different conditions.",
-        Proj_link: ""
+        Proj_link: "https://github.com/Astro0re/Bio-Codes/blob/main/Cellular/Cellular_division.py"
     }
 
 ];
